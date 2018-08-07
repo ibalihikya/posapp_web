@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Sales{% endblock %}
+
+{% block content %}
+<div class="general-form">
+    <h2>Sales</h2>
+<form action="" method="POST">
+    From:
+    <input type="date" name="start_date">
+    <input type="time" name="start_time">
+    To:
+    <input type="date" name="end_date">
+    <input type="time" name="end_time">
+    Products:
+    <select name="products">
+            <option value=""></option>
+            {% for product in products %}
+            <option value = {{product['productid']}} > {{product['productname']}}</option>
+            {% endfor %}
+    </select>
+    View:<br>
+    <input type="radio" name="view" value="detailed" >Detailed<br>
+    <input type="radio" name="view" value="summary" checked>Summary<br>
+    <input type="submit" value="Search">
+</form>
+</div>
+{% if itemsummary %}
+<div class="table-container">
+    <table id="tbl">
+        <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Amount</th>
+        </tr>
+    {% for item in itemsummary %}
+        <tr>
+            <td>{{item['productname']}}</td>
+            <td>{{item['productcount']}}</td>
+            <td>{{item['sum']}}</td>
+        </tr> 
+    {% endfor %}
+</div>
+{% endif %}
+    
+
+{% if items %}
+<div class="table-container">
+    <!--<h2>items</h2>-->
+    <table id="tbl">
+        <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <!--<th>Price</th>-->
+            <th>Total</th>
+            <!--<th>Receipt</th>-->
+            <th>Date</th>
+            <!--<th>Seller</th>-->
+        </tr>
+
+  {% for item in items %}
+        <tr>
+            <td>{{item['productname']}}</td>
+            <td>{{item['quantity']}}</td>
+            <!--<td>{{item['price']}}</td>-->
+            <td>{{item['total']}}</td>
+            <!--<td>{{item['receiptid']}}</td>-->
+            <td>{{item['lastmodifieddate']}}</td>
+            <!--<td>{{item['username']}}</td>-->
+            
+         </tr> 
+  {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}

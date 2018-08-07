@@ -9,17 +9,15 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE_URL = os.environ['DATABASE_URL'],
      )
-
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!' 
-  		
+   		
     from posapp import db
     db.init_app(app)
-
       
-    """from posapp import stock
+    from posapp import stock
     app.register_blueprint(stock.bp)
-    app.add_url_rule('/', endpoint='index')"""
+    app.add_url_rule('/', endpoint='index')
+
+    from posapp import sales
+    app.register_blueprint(sales.bp)
 
     return app

@@ -1,6 +1,7 @@
 import os
 from flask import current_app
 import psycopg2
+from psycopg2.extras import DictCursor
 from pprint import pprint
 
 
@@ -11,7 +12,7 @@ class DbUtil:
 
     def connect(self):
          try:
-            self.connection = psycopg2.connect(current_app.config['DATABASE_URL'])
+            self.connection = psycopg2.connect(current_app.config['DATABASE_URL'],cursor_factory=DictCursor)
             #self.connection = psycopg2.connect(current_app.config['DATABASE_URL'],sslmode='require')
             return self.connection           
          except:
