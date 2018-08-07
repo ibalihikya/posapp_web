@@ -1,0 +1,1 @@
+A web client to augment the pos desktop app. More details later.

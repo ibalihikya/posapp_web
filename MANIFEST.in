@@ -1,0 +1,4 @@
+include posapp/schema.sql
+graft posapp/static
+graft posapp/templates
+global-exclude *.pyc
