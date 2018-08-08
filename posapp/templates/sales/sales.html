@@ -8,12 +8,16 @@
         <h2>Sales</h2>
         <form action="" method="POST">
             <span>From:</span>
-            <input type="date" name="start_date">
-            <input type="time" name="start_time">
+            <div class="time">
+                <input type="date" name="start_date">
+                <input type="time" name="start_time">
+            </div>
             To:
-            <input type="date" name="end_date">
-            <input type="time" name="end_time"> <br>
-            Products:
+            <div class="time">
+                <input type="date" name="end_date">
+                <input type="time" name="end_time">
+            </div>
+            Products:<br>
             <select name="products">
                     <option value=""></option>
                     {% for product in products %}

@@ -118,6 +118,11 @@ html {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.time {
+    clear: both;
+    padding-top: 5px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -179,6 +184,7 @@ input[type=submit] {
     padding: 5px;
     border-radius: 5px;
     background-color: #F0F0F0;
+    clear: both;
 }
 
 .general-form textarea{
@@ -274,6 +280,7 @@ input[type=submit] {
     .general-form {
         width: 70%;
         margin: auto;
+        
     }
 
     .general-form select {
