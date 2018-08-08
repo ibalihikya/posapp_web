@@ -113,13 +113,41 @@ input, select {
     display: table;
 }
 
+
 html {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
 input[type=text], input[type=password], textarea, select {
     width: 100%;
-    padding: 12px 20px;
+    padding: 5px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #C0C0C0;
@@ -130,20 +158,25 @@ input[type=submit] {
     width:100%;
     background-color: royalblue;
     color:white;
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 5px 10px;
+    margin: 4px 0;
     border: none;
     border-radius: 4px;
     font-size: 18px;
 }
 
-
+.wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: ghostwhite;
+}
 
 .general-form {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    padding: 15px;
+    padding: 5px;
     border-radius: 5px;
     background-color: #F0F0F0;
 }
@@ -155,7 +188,7 @@ input[type=submit] {
 .general-form h2 {
     text-align: center;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 20px;
 }
 
 
@@ -239,13 +272,34 @@ input[type=submit] {
     }
 
     .general-form {
-        width: 400px;
+        width: 70%;
+        margin: auto;
     }
 
-    .table-container {
+    .general-form select {
+        width: 200px;
+    }
+
+    .general-form span {
+        padding-right: 26px;
+    }
+
+    .table-container  {
         width: 70%;
         margin: auto;
 
+    }
+
+    .wrap {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        background-color: ghostwhite;
+    }
+
+    .nav ul, h1 {
+        width: 70%;
+        margin: auto;
     }
 
 }

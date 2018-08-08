@@ -2,12 +2,16 @@
 <title>{% block title %}{% endblock %} - Sales Manager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='style.css') }}">
-<nav class="general-form">
+
+<div class="nav">
   <h1>Sales Manager</h1>
+
   <ul>
-    <!--add navigation links here-->
-  </ul>
-</nav>
+    <li><a  href="{{ url_for('stock.index')}}">stock</a></li>
+    <li><a  href="{{url_for('stock.getStockTransactions')}}">log</a></li>
+    <li><a  href="{{url_for('sales.getSalesTransactions')}}">Sales</a></li>
+  </ul> 
+</div>
 <section class="row">
   <header>
     {% block header %}{% endblock %}

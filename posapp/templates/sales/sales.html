@@ -3,27 +3,29 @@
 {% block title %}Sales{% endblock %}
 
 {% block content %}
-<div class="general-form">
-    <h2>Sales</h2>
-<form action="" method="POST">
-    From:
-    <input type="date" name="start_date">
-    <input type="time" name="start_time">
-    To:
-    <input type="date" name="end_date">
-    <input type="time" name="end_time">
-    Products:
-    <select name="products">
-            <option value=""></option>
-            {% for product in products %}
-            <option value = {{product['productid']}} > {{product['productname']}}</option>
-            {% endfor %}
-    </select>
-    View:<br>
-    <input type="radio" name="view" value="detailed" >Detailed<br>
-    <input type="radio" name="view" value="summary" checked>Summary<br>
-    <input type="submit" value="Search">
-</form>
+<div class="wrap">
+    <div class="general-form">
+        <h2>Sales</h2>
+        <form action="" method="POST">
+            <span>From:</span>
+            <input type="date" name="start_date">
+            <input type="time" name="start_time">
+            To:
+            <input type="date" name="end_date">
+            <input type="time" name="end_time"> <br>
+            Products:
+            <select name="products">
+                    <option value=""></option>
+                    {% for product in products %}
+                    <option value = {{product['productid']}} > {{product['productname']}}</option>
+                    {% endfor %}
+            </select><br>
+            View:<br>
+            <input type="radio" name="view" value="detailed" >Detailed<br>
+            <input type="radio" name="view" value="summary" checked>Summary<br>
+            <input type="submit" value="Search">
+        </form>
+    </div>
 </div>
 {% if itemsummary %}
 <div class="table-container">
