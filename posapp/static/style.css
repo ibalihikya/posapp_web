@@ -223,6 +223,27 @@ input[type=submit] {
 
 }
 
+.overview {
+    line-height: 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 5px;
+
+}
+
+.table-overview div {
+    text-align: left;
+    font-size: 20px;
+    line-height: 50px;
+    padding: 50px;
+    
+
+}
+
+
+
+
 #tbl {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-collapse: collapse;
@@ -251,6 +272,11 @@ input[type=submit] {
 #tbl tr:hover {
     background-color: #C0C0C0;
 }
+
+#tbl tr.low {
+    background-color: red;
+}
+
  
 [class*="col-"]{
     width: 100%;
@@ -277,21 +303,29 @@ input[type=submit] {
         margin-bottom: calc(100vh/3);
     }
 
-    .general-form {
-        width: 70%;
+    
+
+    .general-form, .flash {
+        width: 30%;
         margin: auto;
         
     }
 
     .general-form select {
-        width: 200px;
+        width: 100%;
     }
 
     .general-form span {
         padding-right: 26px;
     }
 
-    .table-container  {
+    .table-container {
+        width: 70%;
+        margin: auto;
+
+    }
+
+    .overview  {
         width: 70%;
         margin: auto;
 

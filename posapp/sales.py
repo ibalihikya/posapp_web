@@ -32,13 +32,14 @@ def getSalesTransactions():
         if not start_time:
             start_time = "00:00"
 
+        if not end_time:
+            end_time = "23:59"
+
         if error is not None:
             flash(error)
         else:
             start_date_time = start_date + " " + start_time
-            if not end_date:
-                end_date_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-            else:
+            if end_date:
                 end_date_time = end_date + " " + end_time
             db = get_db()
             cur = db.cursor()
@@ -53,11 +54,18 @@ def getSalesTransactions():
                 return render_template('sales/sales.html', itemsummary=itemsummary)
 
             if productid == "" :
-                query = "select transaction.*,  receipt.*, product.productName from " + databaseName +".transaction  \
+                if end_date:
+                    query = "select transaction.*,  receipt.*, product.productName from " + databaseName +".transaction  \
                         left join " + databaseName +  ".receipt on transaction.receiptId = receipt.receiptId  \
-                        left join " + databaseName + ".product on transaction.productId = product.productId where \
-                        receipt.lastModifiedDate > %(start_date_time)s AND receipt.lastModifiedDate < %(end_date_time)s;"
-                cur.execute(query, {'start_date_time':start_date_time, 'end_date_time':end_date_time})
+                        left join " + databaseName + ".product on transaction.productId = product.productId \
+                        WHERE receipt.lastModifiedDate > %(start_date_time)s AND receipt.lastModifiedDate < %(end_date_time)s;"
+                    cur.execute(query, {'start_date_time':start_date_time, 'end_date_time':end_date_time})
+                else:
+                    query = "select transaction.*,  receipt.*, product.productName from " + databaseName +".transaction  \
+                        left join " + databaseName +  ".receipt on transaction.receiptId = receipt.receiptId  \
+                        left join " + databaseName + ".product on transaction.productId = product.productId \
+                        WHERE receipt.lastModifiedDate > %(start_date_time)s;"
+                    cur.execute(query, {'start_date_time':start_date_time})
             else:
                 query = "select transaction.*,  receipt.*, product.productName from " + databaseName +".transaction  \
                         left join " + databaseName +  ".receipt on transaction.receiptId = receipt.receiptId  \

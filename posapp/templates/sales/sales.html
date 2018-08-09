@@ -5,7 +5,6 @@
 {% block content %}
 <div class="wrap">
     <div class="general-form">
-        <h2>Sales</h2>
         <form action="" method="POST">
             <span>From:</span>
             <div class="time">
@@ -25,8 +24,8 @@
                     {% endfor %}
             </select><br>
             View:<br>
-            <input type="radio" name="view" value="detailed" >Detailed<br>
             <input type="radio" name="view" value="summary" checked>Summary<br>
+            <input type="radio" name="view" value="detailed" >Detailed<br>
             <input type="submit" value="Search">
         </form>
     </div>
@@ -43,7 +42,7 @@
         <tr>
             <td>{{item['productname']}}</td>
             <td>{{item['productcount']}}</td>
-            <td>{{item['sum']}}</td>
+            <td>{{"{:,.0f}".format(item['sum'])}}</td>
         </tr> 
     {% endfor %}
 </div>
@@ -69,9 +68,9 @@
             <td>{{item['productname']}}</td>
             <td>{{item['quantity']}}</td>
             <!--<td>{{item['price']}}</td>-->
-            <td>{{item['total']}}</td>
+            <td>{{"{:,.0f}".format(item['total'])}}</td>
             <!--<td>{{item['receiptid']}}</td>-->
-            <td>{{item['lastmodifieddate']}}</td>
+            <td>{{item['lastmodifieddate'].strftime("%d-%m-%Y %H:%M")}}</td>
             <!--<td>{{item['username']}}</td>-->
             
          </tr> 

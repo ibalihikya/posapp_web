@@ -7,8 +7,9 @@
   <h1>Sales Manager</h1>
 
   <ul>
-    <li><a  href="{{ url_for('stock.index')}}">stock</a></li>
-    <li><a  href="{{url_for('stock.getStockTransactions')}}">log</a></li>
+    <li><a  href="{{ url_for('overview.index')}}">Overview</a></li>
+    <li><a  href="{{ url_for('stock.index')}}">Stock</a></li>
+    <li><a  href="{{url_for('stock.getStockTransactions')}}">Log</a></li>
     <li><a  href="{{url_for('sales.getSalesTransactions')}}">Sales</a></li>
   </ul> 
 </div>

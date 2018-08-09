@@ -20,4 +20,7 @@ def create_app(test_config=None):
     from posapp import sales
     app.register_blueprint(sales.bp)
 
+    from posapp import overview
+    app.register_blueprint(overview.bp)
+
     return app

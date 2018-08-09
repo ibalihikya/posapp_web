@@ -18,8 +18,8 @@
             <!--<td>{{item['productid']}}</td>-->
             <td>{{item['productname']}}</td>
             <td>{{item['quantity']}}</td>
-            <td>{{item['datecreated']}}</td>
-            <td>{{item['lastmodifieddate']}}</td>
+            <td>{{item['datecreated'].strftime("%d-%m-%Y %H:%M")}}</td>
+            <td>{{item['lastmodifieddate'].strftime("%d-%m-%Y %H:%M")}}</td>
             <!--<td>{{item['comment']}}</td>-->
             
          </tr> 
